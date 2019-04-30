@@ -69,7 +69,7 @@ function refreshCombinationCheckerOptions(){
     return item.traitOne;
   })
   const traitTwos= $.map(items, function(item) {
-    return item.traitOne;
+    return item.traitTwo;
   })
 
   const traits = [...traitOnes, ...traitTwos].filter(onlyUnique);
@@ -79,6 +79,9 @@ function refreshCombinationCheckerOptions(){
       <option>${trait}</option>    
     `);
     $('#checkerTraitTwo').append(`
+      <option>${trait}</option>    
+    `);
+    $('#checkerTraitThree').append(`
       <option>${trait}</option>    
     `);
   });
@@ -187,6 +190,7 @@ $('#checkerForm').on('submit', function(event) {
 
   traits[$('#checkerTraitOne').val()] = parseInt($('#traitOneNo').val());
   traits[$('#checkerTraitTwo').val()] = parseInt($('#traitTwoNo').val());
+  traits[$('#checkerTraitThree').val()] = parseInt($('#traitThreeNo').val());
 
   var sets = checkCombinationOf(traits);
 
