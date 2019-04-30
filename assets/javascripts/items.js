@@ -101,10 +101,12 @@ function checkCombinationOf(traits) {
     var passing = true;
 
     $.each(traits, function(trait, amount) {
-      passing = (set.traits[trait] >= amount);
-      console.log(`(set[${trait}] = ${set.traits[trait]}) >= ${amount} (amount)  [[ ${passing} ]]`);
+      if(amount !== 0) { // if 0, we assume its not needed
+        passing = (set.traits[trait] >= amount);
+        console.log(`(set[${trait}] = ${set.traits[trait]}) >= ${amount} (amount)  [[ ${passing} ]]`);
 
-      if(!passing) { return false; }
+        if(!passing) { return false; }
+      }
     })
 
     return passing;
