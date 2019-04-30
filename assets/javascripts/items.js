@@ -74,6 +74,10 @@ function refreshCombinationCheckerOptions(){
 
   const traits = [...traitOnes, ...traitTwos].filter(onlyUnique);
 
+  $('#checkerTraitOne').empty();
+  $('#checkerTraitTwo').empty();
+  $('#checkerTraitThree').empty();
+
   $.each(traits, function(_, trait) {
     $('#checkerTraitOne').append(`
       <option>${trait}</option>    
